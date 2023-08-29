@@ -1,4 +1,4 @@
-import { Blog, News } from "../components";
+import { Post, News } from "../components";
 
 const Home = () => {
   return (
@@ -12,9 +12,9 @@ const Home = () => {
       <div className="w-full h-2 bg-gray-200 mt-8 mb-3"></div>
       <div className="flex flex-wrap items-center justify-center p-4">
         <p className="w-full font-semibold text-left text-xl">New posts</p>
-        <Blog />
-        <Blog />
-        <Blog />
+        <Post />
+        <Post />
+        <Post />
       </div>
     </div>
   );
