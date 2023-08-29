@@ -14,7 +14,7 @@ const Header = () => {
         <img
           src={Icon}
           alt="YJC"
-          className="rounded-full h-[4rem]"
+          className="rounded-full h-[4rem] sm:h-[2rem]"
           onClick={() => {
             navigate("/");
             console.log("clicked");
