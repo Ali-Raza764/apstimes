@@ -1,3 +1,6 @@
 export {default as Home} from './Home'
 export {default as Login} from './Login'
 export {default as Error} from './Error'
+export {default as PostDetails} from './PostDetails'
+export {default as NewsDetails} from './NewsDetails'
+export {default as CreatePost} from './CreatePost'
