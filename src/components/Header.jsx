@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import Icon from "../assets/aps.png";
-import DemoAccountImage from '../assets/account.png'
+import {AccountAvatar, Logo} from '../assets'
 import { useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="bg-white w-full h-[5rem] sticky top-0 font-semibold border-b-2 border-gray-500 p-5 flex justify-between">
+    <div className="bg-white w-full h-max font-semibold border-b-2 border-gray-500 p-5 flex justify-between">
 
       <div className="flex items-center justify-center">
         <img
-          src={Icon}
+          src={Logo}
           alt="YJC"
           className="rounded-full h-[4rem] sm:h-[2rem]"
           onClick={() => {
@@ -29,7 +28,7 @@ const Header = () => {
       <div className="flex items-center justify-center">
         {loggedIn ? (
           <div className="flex">
-            <img src={DemoAccountImage} alt="Account" className="h-[3rem] rounded-full" onClick={(e)=>{e.preventDefault()}}/>
+            <img src={AccountAvatar} alt="Account" className="h-[3rem] rounded-full" onClick={(e)=>{e.preventDefault()}}/>
           </div>
         ) : (
           <button

@@ -3,12 +3,8 @@ import { Blog, News } from "../components";
 const Home = () => {
   return (
     <div className="w-full px-20 sm:p-5">
-      <div className="text-center text-4xl font-semibold mt-5 tracking-tight">
-        Welcome to the APS Times
-      </div>
-
       <div className="flex flex-wrap items-center justify-center p-4">
-        <h2 className="text-xl w-full font-semibold mb-3">News</h2>
+        <h2 className="text-xl w-full font-semibold mb-1">News</h2>
         <News />
         <News />
         <News />
