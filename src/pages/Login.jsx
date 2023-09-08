@@ -1,5 +1,5 @@
 const Login = () => {
-
+  
   const signIn = async (username, password) =>{
     console.log(username, password);
   }
@@ -26,6 +26,7 @@ const Login = () => {
             className=" mb-10 p-2 rounded-md focus:outline-none"
             placeholder="password"
             name="password"
+            aria-controls="hide"
             id="password"
           />
 

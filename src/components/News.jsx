@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SamplePostImage } from "../assets/sample.jpg";
+import SamplePostImage  from "../assets/sample.jpg";
 
 const News = () => {
   return <div className="border-2 boder-gray-200 shadow m-8 p-4 w-[15rem] text-left bg-[#f1f1f1]">

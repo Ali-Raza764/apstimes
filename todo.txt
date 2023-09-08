@@ -1,0 +1,1 @@
+Add functionality to not show header on the login page.
