@@ -1,3 +1,7 @@
 export {default as Logo} from './aps.png'
 export {default as AccountAvatar} from './account.png'
 export {default as SamplePostImage} from './sample.jpg'
+export {default as image1} from './news-1.png'
+export {default as image2} from './news-2.png'
+export {default as image3} from './news-3.png'
+export {default as image4} from './news-4.png'

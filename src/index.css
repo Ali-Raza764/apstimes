@@ -12,3 +12,10 @@
 .cursive{
   font-family: cursive;
 }
+
+.data-image{
+  z-index: 2;
+}
+.header{
+  z-index: 99;
+}

@@ -35,16 +35,12 @@ const Header = () => {
       </div>
 
       <div className="flex items-center justify-center sm:hidden">
-        <div className="mx-6 hover:border-[#006435] hover:border-b-2 w-11">
-          <Link to={"/"} className="hover:text-[#006435] ">
-            Blogs
-          </Link>
+        <div className="mx-6 hover:border-[#006435] hover:border-b-2 w-11 hover:text-[#006435] ">
+          <Link to={"/"}>Blogs</Link>
         </div>
 
-        <div className="mx-6 hover:border-[#006435] hover:border-b-2">
-          <Link to={"/"} className="hover:text-[#006435]">
-            Members
-          </Link>
+        <div className="mx-6 hover:border-[#006435] hover:border-b-2 hover:text-[#006435]">
+          <Link to={"/"}>Members</Link>
         </div>
 
         {loggedIn ? (
@@ -84,7 +80,7 @@ const Header = () => {
         <div
           className={
             showNav
-              ? "flex flex-col bg-gray-900 h-full w-full absolute top-0 right-0 left-0 bottom-0 text-white z-99 ease-in transition-all"
+              ? "flex flex-col bg-gray-900 h-full w-full absolute top-0 right-0 left-0 bottom-0 text-white header ease-in transition-all" 
               : "hidden right-[-500rem]"
           }
         >
@@ -95,7 +91,7 @@ const Header = () => {
                 changeNav();
               }}
             >
-              <button className="text-2xl outline-none ">&#9776;</button>
+              <button className="text-2xl outline-none ">&#9932;</button>
             </span>
           </div>
 

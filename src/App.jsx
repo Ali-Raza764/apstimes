@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import {
+  AdminDetails,
   CreatePost,
   Error,
   Home,
@@ -16,10 +17,11 @@ import {
 
 const App = () => {
   const location = useLocation();
+  console.log(location)
   return (
     <>
       <div className="w-full">
-        {location === "/login" ? console.log(location) : <Header />}
+        {location.pathname == "/login" ?(console.log(location)) : (<Header / >)}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -27,6 +29,7 @@ const App = () => {
           <Route path="/postdetails/:id" element={<PostDetails />} />
           <Route path="/newsdetails/:id" element={<NewsDetails />} />
           <Route path="/create" element={<CreatePost />} />
+          <Route path="/admin" element={<AdminDetails />} />
           <Route path="/*" element={<Error />} />
         </Routes>
         {/* <Footer /> */}

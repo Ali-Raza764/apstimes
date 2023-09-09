@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import SamplePostImage from "../assets/sample.jpg";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Post = () => {
   return (
@@ -7,7 +9,7 @@ const Post = () => {
 
       <div className="flex flex-col items-center justify-center w-[20rem] sm:w-[90vw] m-8 sm:mb-8 sm:mt:1 sm:mx-0 border-gray-200 shadow border-2 rounded-md p-4">
 
-        <img src={SamplePostImage} className="w-[25rem]" />
+        <LazyLoadImage effect="blur" src={SamplePostImage} className="w-[25rem] data-image relative" />
         <h2 className="w-full font-semibold text-2xl my-2 text-left">Coding Setup guide</h2>
         <p className="w-full">Lorem ipsum dolor sit amet consect, veniam voluptatem? Nulla.</p>
 
