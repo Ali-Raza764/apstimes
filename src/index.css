@@ -19,10 +19,6 @@
 .header{
   z-index: 99;
 }
-#app {
-  height: 100vh;
-  max-height: 100dvh;
-  overscroll-behavior: none;
-  -webkit-font-smoothing: antialiased;
-  overflow: auto;
+.active{
+  border-bottom: 2px solid #006435;
 }

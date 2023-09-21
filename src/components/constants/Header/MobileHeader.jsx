@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
   const [showNav, setshowNav] = useState(false);
@@ -31,7 +30,7 @@ const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
             : "hidden right-[-500rem]"
         }
       >
-        <div className="w-full flex items-end flex-col h-11 pt-5 px-3 text-3xl">
+        <div className="w-full flex items-end flex-col h-11 pt-1 px-3 text-3xl">
           <span
             className="border-2 border-white rounded-full w-[2.5rem] h-[2.5rem] flex items-center justify-center shadow p-2"
             onClick={() => {
@@ -73,24 +72,45 @@ const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center text-2xl w-full">
-            <div className="mt-8 mb-4 hover:border-[#006435] border-b-2 border-white w-[90%] py-3">
-              <Link to={"/"} className="hover:text-[#006435] ">
-                Blogs
-              </Link>
+            <div className="mt-8 mb-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3" onClick={() => {
+                  navigate("/");
+                  setshowNav(false);
+                }} >
+              Home
+            </div>
+            <div className="mt-8 mb-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3" onClick={() => {
+                  navigate("/blogs");
+                  setshowNav(false);
+                }} >
+              Blogs
             </div>
 
-            <div className="my-4 hover:border-[#006435] border-b-2 border-white w-[90%] py-3">
-              <Link to={"/"} className="hover:text-[#006435]">
-                Members
-              </Link>
+            <div className="my-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3"  onClick={() => {
+                  navigate("/members");
+                  setshowNav(false);
+                }}>
+              Members
             </div>
 
-            <div className="my-4 hover:border-[#006435] border-b-2 border-white w-[90%] py-3">
-              <Link to={"/create"} className="hover:text-[#006435]">
-                Create
-              </Link>
+            <div className="my-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3"  onClick={() => {
+                  navigate("/create");
+                  setshowNav(false);
+                }}>
+               Create
             </div>
           </div>
+          
+          <div className="text-left w-full px-7">
+          <h3 className="text-2xl text-green-600">Links</h3>
+          <div className="flex items-center justify-center mt-4"> 
+
+            <div className="mx-5">I</div>
+            <div className="mx-5">F</div>
+            <div className="mx-5">W</div>
+
+          </div>
+          </div>
+
         </div>
       </div>
     </div>

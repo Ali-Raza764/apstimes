@@ -26,7 +26,7 @@ const Home = () => {
       .catch(console.error);
   }, [setpostData]);
 
-  if (!postData) return <div>Loading...</div>;
+  // if (!postData) return <div>Loading...</div>;
 
   return (
     <div className="w-full px-20 sm:px-2">

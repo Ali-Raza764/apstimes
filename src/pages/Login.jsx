@@ -9,6 +9,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        localStorage.setItem('isloggedIn', true)
         navigate("/");
       })
       .catch((error) => console.log(error));

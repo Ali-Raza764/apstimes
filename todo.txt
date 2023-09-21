@@ -1,3 +1,3 @@
-Add functionality to not show header on the login page.(Done)
-add muti carousel to home page and add some beautifying to it.
-make pages i.e upload post, admin page.
+add slider.
+add active functinality to the header.
+replace messy code with api calls from api folder!!.

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Header, Footer } from "./components";
+import { Header } from "./components";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,10 +8,12 @@ import {
 } from "react-router-dom";
 import {
   AdminDetails,
+  Blogs,
   CreatePost,
   Error,
   Home,
   Login,
+  Members,
   NewsDetails,
   PostDetails,
 } from "./pages";
@@ -32,6 +34,7 @@ const App = () => {
         setAuthUser(null);
         setLoggedIn(false)
       }
+      localStorage.setItem('isloggedIn', true)
     });
 
     return () => {
@@ -48,11 +51,12 @@ const App = () => {
           <Route path="/details/:id" element={<PostDetails />} />
           <Route path="/postdetails/:slug" element={<PostDetails />} />
           <Route path="/newsdetails/:slug" element={<NewsDetails />} />
-          <Route path="/create" element={<CreatePost />} />
-          <Route path="/admin" element={<AdminDetails />} />
+          <Route path="/create" element={<CreatePost authUser={authUser}/>} />
+          <Route path="/admin" element={<AdminDetails authUser={authUser} />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/members" element={<Members />} />
           <Route path="/*" element={<Error />} />
         </Routes>
-        {/* <Footer /> */}
       </div>
     </>
   );
