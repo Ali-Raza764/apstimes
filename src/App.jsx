@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import { Header, Footer } from "./components";
 import {
   BrowserRouter as Router,
@@ -14,20 +15,39 @@ import {
   NewsDetails,
   PostDetails,
 } from "./pages";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "./config/firebase";
 
 const App = () => {
   const location = useLocation();
-  console.log(location)
+  const [authUser, setAuthUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(authUser);
+        setLoggedIn(true);
+      } else {
+        setAuthUser(null);
+        setLoggedIn(false)
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
   return (
     <>
       <div className="w-full">
-        {location.pathname == "/login" ?(console.log(location)) : (<Header / >)}
+        {location.pathname == "/login" ?("") : (<Header loggedIn={loggedIn} authUser={authUser} />)}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/details/:id" element={<PostDetails />} />
-          <Route path="/postdetails/:id" element={<PostDetails />} />
-          <Route path="/newsdetails/:id" element={<NewsDetails />} />
+          <Route path="/postdetails/:slug" element={<PostDetails />} />
+          <Route path="/newsdetails/:slug" element={<NewsDetails />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/admin" element={<AdminDetails />} />
           <Route path="/*" element={<Error />} />
