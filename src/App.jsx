@@ -28,8 +28,9 @@ const App = () => {
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setAuthUser(authUser);
+        setAuthUser(user);
         setLoggedIn(true);
+        console.log(user);
       } else {
         setAuthUser(null);
         setLoggedIn(false)
@@ -40,7 +41,7 @@ const App = () => {
     return () => {
       listen();
     };
-  }, []);
+  }, [authUser]);
   return (
     <>
       <div className="w-full">

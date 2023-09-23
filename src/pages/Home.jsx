@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Post, NewsCarousel } from "../components";
-import sanityClient  from "../config/client";
+import client  from "../config/client";
 
 const Home = () => {
   const [postData, setpostData] = useState([]);
   useEffect(() => {
-    sanityClient 
+    client 
       .fetch(
         `*[_type == "post"]{
         title,

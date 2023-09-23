@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import sanityClient  from "../config/client";
+import client  from "../config/client";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 
 
-const builder = imageUrlBuilder(sanityClient );
+const builder = imageUrlBuilder(client );
 function urlFor(source) {
   return builder.image(source);
 }
@@ -15,7 +15,7 @@ const PostDetails = () => {
   const [postData, setPostData] = useState(null);
 
   useEffect(() => {
-    sanityClient 
+    client 
       .fetch(
         `*[slug.current == $slug]{
           title,

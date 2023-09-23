@@ -2,8 +2,10 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { auth } from "../config/firebase";
 import { AccountAvatar } from "../assets";
+import { useNavigate } from "react-router-dom";
 
 const AuthDetails = ({ authUser }) => {
+  const navigate = useNavigate();
   const userSignOut = () => {
     signOut(auth)
       .then(() => {

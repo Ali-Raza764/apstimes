@@ -1,7 +1,7 @@
-import sanityClient from "../config/client";
+import client from "../config/client";
 
 export const getAllposts = async () => {
-  const data = await sanityClient.fetch(
+  const data = await client.fetch(
     `*[_type == "post"]{
       title,
       slug,
@@ -17,7 +17,7 @@ export const getAllposts = async () => {
   return data;
 };
 export const getOnePost = async ({ slug }) => {
-  const data = await sanityClient.fetch(
+  const data = await client.fetch(
     `*[slug.current == $slug]{
       title,
       slug,
@@ -36,7 +36,7 @@ export const getOnePost = async ({ slug }) => {
   return data;
 };
 export const getAllNews = async () => {
-  const data = await sanityClient.fetch(
+  const data = await client.fetch(
     `*[_type == "news"]{
       title,
       mainImage{
@@ -50,7 +50,7 @@ export const getAllNews = async () => {
   return data;
 };
 export const getOneNews = async ({ slug }) => {
-  const data = await sanityClient.fetch(
+  const data = await client.fetch(
     `*[slug.current == $slug]{
       title,
       slug,

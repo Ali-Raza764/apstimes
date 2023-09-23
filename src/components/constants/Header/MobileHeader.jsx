@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
   const [showNav, setshowNav] = useState(false);
+  console.log(authUser);
+  const normalstyles =
+    "w-full mx-6 my-5 md:mx-3 hover:border-[#006435] hover:border-b-2 w-11 hover:text-[#006435]";
 
   const changeNav = () => {
     if (showNav == true) {
@@ -56,7 +60,9 @@ const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
                   alt="avatar"
                   className="h-[3rem] rounded-full"
                 />
-                <div className="text-2xl font-sans mx-3">{authUser.email}</div>
+                <div className="text-2xl font-sans mx-3 text-white">
+                  {authUser?.email}
+                </div>
               </div>
             ) : (
               <button
@@ -72,45 +78,57 @@ const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center text-2xl w-full">
-            <div className="mt-8 mb-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3" onClick={() => {
-                  navigate("/");
+            <div
+              id="mobilenavbar"
+              className="flex flex-col items-center justify-center"
+            >
+              <NavLink
+                to={"/"}
+                className={normalstyles}
+                onClick={() => {
                   setshowNav(false);
-                }} >
-              Home
-            </div>
-            <div className="mt-8 mb-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3" onClick={() => {
-                  navigate("/blogs");
+                }}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to={"/blogs"}
+                className={normalstyles}
+                onClick={() => {
                   setshowNav(false);
-                }} >
-              Blogs
-            </div>
-
-            <div className="my-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3"  onClick={() => {
-                  navigate("/members");
+                }}
+              >
+                Blogs
+              </NavLink>
+              <NavLink
+                to={"/members"}
+                className={normalstyles}
+                onClick={() => {
                   setshowNav(false);
-                }}>
-              Members
-            </div>
-
-            <div className="my-4 hover:border-[#006435] hover:text-[#006435] border-b-2 border-white w-[90%] py-3"  onClick={() => {
-                  navigate("/create");
+                }}
+              >
+                Members
+              </NavLink>
+              <NavLink
+                to={"/create"}
+                className={normalstyles}
+                onClick={() => {
                   setshowNav(false);
-                }}>
-               Create
+                }}
+              >
+                Create
+              </NavLink>
             </div>
           </div>
-          
+
           <div className="text-left w-full px-7">
-          <h3 className="text-2xl text-green-600">Links</h3>
-          <div className="flex items-center justify-center mt-4"> 
-
-            <div className="mx-5">I</div>
-            <div className="mx-5">F</div>
-            <div className="mx-5">W</div>
-
+            <h3 className="text-2xl text-green-600">Links</h3>
+            <div className="flex items-center justify-center mt-4">
+              <div className="mx-5">I</div>
+              <div className="mx-5">F</div>
+              <div className="mx-5">W</div>
+            </div>
           </div>
-          </div>
-
         </div>
       </div>
     </div>

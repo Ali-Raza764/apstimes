@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
 import "./styles.css";
-import sanityClient from "../../config/client";
+import client from "../../config/client";
 // import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -11,7 +11,7 @@ const NewsCarousel = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    sanityClient
+    client
       .fetch(
         `*[_type == "news"]{
         title,
