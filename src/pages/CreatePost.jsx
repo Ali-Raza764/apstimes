@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import client from '../config/client'
 
 const CreatePost = ({ authUser }) => {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState('');
   const navigate = useNavigate()
 
   const changeImage = async(e) => {
