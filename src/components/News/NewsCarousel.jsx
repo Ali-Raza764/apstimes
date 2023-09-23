@@ -1,28 +1,41 @@
 import News from "./News";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
 import "./styles.css";
-import client from "../../config/client";
-// import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import { getAllNews } from "../../api/getData";
 
 const NewsCarousel = () => {
   const [newsData, setNewsData] = useState([]);
+  const dummy = [1,1,1,1,12,42,12,4,512,4]
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 520,
+        settings: { slidesToShow: 1, slidesToScroll: 1, infinite: false },
+      },
+      {
+        breakpoint: 868,
+        settings: { slidesToShow: 2, slidesToScroll: 1, infinite: false },
+      },
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 1, infinite: false },
+      },
+    ],
+    arrows: true,
+    centerPadding: "14",
+  };
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "news"]{
-        title,
-        mainImage{
-          asset->{
-          _id,
-          url
-        }
-      }
-    }`
-      )
+    getAllNews()
       .then((data) => {
         console.log(data);
         setNewsData(data);
@@ -31,37 +44,27 @@ const NewsCarousel = () => {
   }, [setNewsData]);
 
   return (
-    <div className="parent w-full h-[90%] flex items-center justify-center bg-gray-600">
+    <div className="container flex items-center justify-center">
       {newsData.length === 0 ? (
-        <div>
-          {/* <Swiper
-            slidesPerView={5}
-            onSlideChange={()=>console.log("slide changed")}
-          >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-          </Swiper> */}
-          ""
+        <div className="container">
+          <h2> Shorts </h2>
+          <Slider {...settings} className="text-center">
+            <div className="w-11 h-11 bg-white">Item</div>
+            <div className="w-11 h-11 bg-white">Item</div>
+            <div className="w-11 h-11 bg-white">Item</div>
+            <div className="w-11 h-11 bg-white">Item</div>
+            <div className="w-11 h-11 bg-white">Item</div>
+          </Slider>
         </div>
       ) : (
-        <Carousel
-          showArrows={false}
-          showThumbs={false}
-          showDots={false}
-          swipeable={true}
-          autoPlay={true}
-          infiniteLoop={true}
-          className="w-[18rem]"
-        >
-          {newsData.map((data, index) => {
-            return <News data={data} key={data.title} />;
+        <Slider {...settings} className="text-center w-full">
+          {newsData.map((data) => {
+            return (
+              <News data={data} key={data.title} />
+            )
+            
           })}
-        </Carousel>
+        </Slider>
       )}
     </div>
   );

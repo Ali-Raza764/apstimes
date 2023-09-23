@@ -1,32 +1,7 @@
-import { useEffect, useState } from "react";
-import { Post, NewsCarousel } from "../components";
-import client  from "../config/client";
+import { NewsCarousel } from "../components";
+import Posts from "../components/Post/Posts";
 
 const Home = () => {
-  const [postData, setpostData] = useState([]);
-  useEffect(() => {
-    client 
-      .fetch(
-        `*[_type == "post"]{
-        title,
-        slug,
-        mainImage{
-          asset->{
-          _id,
-          url
-        },
-        author
-      }
-    }`
-      )
-      .then((data) => {
-        console.log(data);
-        setpostData(data);
-      })
-      .catch(console.error);
-  }, [setpostData]);
-
-  // if (!postData) return <div>Loading...</div>;
 
   return (
     <div className="w-full px-20 sm:px-2">
@@ -37,9 +12,7 @@ const Home = () => {
 
       <div className="flex flex-wrap items-center justify-center p-4">
         <p className="w-full font-semibold text-left text-xl mt-3">New posts</p>
-        {postData.length === 0
-          ? ""
-          : postData.map((post, index)=><Post post={post} key={index}/>)}
+        <Posts />
       </div>
     </div>
   );

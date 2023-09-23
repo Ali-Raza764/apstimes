@@ -1,3 +1,3 @@
-add slider.
-add active functinality to the header.
-replace messy code with api calls from api folder!!.
+block content and upload with user etc.
+find a way to access env..!
+News details access 

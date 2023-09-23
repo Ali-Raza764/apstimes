@@ -23,16 +23,16 @@ const NormalHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
       </div>
 
       {loggedIn ? (
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center justify-center">
           <img
             src={AccountAvatar}
             alt="Account"
-            className="h-[3rem] rounded-full"
+            className="h-[3rem] rounded-full w-[3rem]"
             onClick={(e) => {
               e.preventDefault();
             }}
           />
-          <span>{authUser?.email}</span>
+          <span className="w-11 text-md">{authUser?.name}</span>
         </div>
       ) : (
         <button

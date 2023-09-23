@@ -1,30 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './styles.css'
+import sanityImageUrl from "../../utils/sanityImageUrl";
 
-const News = ({data:{mainImage, title, body}}) => {
+const News = ({data:{mainImage, title}}) => {
+  console.log();
   return (
-    <Link to={`/newsdetails/1`} className="">
-      {/* <div className="border-2 boder-gray-200 shadow bg-[#f1f1f1] h-full p-6 mx-5">
-        <img src={mainImage.asset.url} alt="" />
-        <h3 className="text-xl font-semibold ">
+    <Link to={`/newsdetails/1`} className="flex flex-col items-center justify-center">
+      <div className="border-2 boder-gray-200 shadow bg-[#f1f1f1] h-[18rem] p-2 mx-5 flex flex-col items-center justify-center" >
+        <img src={sanityImageUrl(mainImage).width(1600).height(1300).url()} alt="News" className=" h-[12rem] w-auto" />
+        <h3 className="text-xl font-semibold w-[11rem]">
           {title}
         </h3>
-      </div> */}
-
-      <div className="movie h-full w-[18rem]">
-      <div>
-        <p>2018</p>
       </div>
-
-      <div>
-        <img src={mainImage.asset.url} />
-      </div>
-
-      <div>
-        <h3>{title}</h3>
-      </div>
-    </div>
     </Link>
   );
 };

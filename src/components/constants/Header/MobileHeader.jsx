@@ -3,9 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const MobileHeader = ({ loggedIn, authUser, navigate, AccountAvatar }) => {
   const [showNav, setshowNav] = useState(false);
-  console.log(authUser);
   const normalstyles =
-    "w-full mx-6 my-5 md:mx-3 hover:border-[#006435] hover:border-b-2 w-11 hover:text-[#006435]";
+    "w-full mx-6 my-5 md:mx-3 hover:border-[#006435] hover:border-b-2 hover:text-[#006435]";
 
   const changeNav = () => {
     if (showNav == true) {

@@ -22,6 +22,8 @@
 #navbar a.active{
   border-bottom: 2px solid #006435;
   color: #006435;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 #mobilenavbar a.active{
   border-bottom: 2px solid #006435;

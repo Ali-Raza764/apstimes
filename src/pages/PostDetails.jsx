@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import client  from "../config/client";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
+import { getOnePost } from "../api/getData";
 
 
-const builder = imageUrlBuilder(client );
+const builder = imageUrlBuilder(client);
 function urlFor(source) {
   return builder.image(source);
 }
@@ -15,28 +16,14 @@ const PostDetails = () => {
   const [postData, setPostData] = useState(null);
 
   useEffect(() => {
-    client 
-      .fetch(
-        `*[slug.current == $slug]{
-          title,
-          slug,
-          mainImage{
-            asset->{
-              _id,
-              url
-             }
-           },
-         body,
-        "name": author->name,
-        "authorImage": author->image,
-       }`,
-        { slug }
-      )
+    if (slug) {
+      getOnePost(slug)
       .then((data) =>{ 
         setPostData(data[0])
         console.log(data[0])
       })
-      .catch(console.error);
+    }
+    
   }, [slug]);
 
   if (!postData) return <div>Loading...</div>;
